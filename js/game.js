@@ -1,5 +1,5 @@
 function color() {
-    var colors = ['#ffaf05', 'red', 'blue', '#62f441', 'yellow',  '#f442e8'];
+    var colors = ['#ffaf05', 'red', 'blue', '#62f441', 'yellow', '#f442e8'];
 
     var size = 4;
     var blockWidth = 100;
@@ -9,6 +9,7 @@ function color() {
     var $view = $('#colorpad');
     var i, j;
     var $block;
+    var click;
 
     $view.css('width', size * blockWidth);
     $view.css('height', size * blockWidth);
@@ -24,18 +25,48 @@ function color() {
 
                 $view.append($block);
 
+
                 $block.click(function (e) {
-                    $(this).css('background-color', data[this.id]);
+
+                    countScore(this.id);
                 });
 
-                data[i + '-' +j] = rand;
+                data[i + '-' + j] = rand;
+
             }
     }
 
     fillTable();
 
-    function randomizeColors() {
-        alert(colors[Math.floor(Math.random() * colors.length)]);
+    function countScore(id) {
+
+        $('#' + id).css('background-color', data[id]);
+
+        if (!click)
+        {
+            click = id;
+            return;
+        }
+
+        if (data[click] === data[id])
+        {
+            //TODO: increase score
+            //TODO: remove click event listeren on click and id
+            //TODO: clear click value
+        }
+        else
+        {
+            setTimeout(function (){
+                $('#' + click).css('background-color', '');
+                $('#' + id).css('background-color', '');
+                click = null;
+            }, 2000)
+        }
+
+
+
+        // if($block.click /*&& data[this.id] === data[this.id]*/ )
+        //alert(data);
     }
 
 
