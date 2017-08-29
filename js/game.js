@@ -1,5 +1,5 @@
 function color() {
-    var colors = ['#ffaf05', 'red', 'blue', '#62f441', /*'yellow', '#f442e8'*/];
+    var colors = ['#91D9C8', '#D991A2', '#D1DCFF', '#62f441', '#A9A986'];
 
     var size = 4;
     var blockWidth = 100;
