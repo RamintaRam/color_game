@@ -1,10 +1,36 @@
-.block
-{
-    width: 100px;
-    height: 100px;
+body{
+    text-align: center;
+background: url("../img/pexels-photo-63952.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-#colorpad{
-    width: 400px;
-    height: 400px;
+
+#colorpad
+{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #888888;
+    /*box-shadow: 10px 10px 5px #888888;*/
+
+
 }
+
+.block
+{
+    box-sizing: border-box;
+    border: 1px solid #888888;
+
+    box-shadow: 5px 5px 5px #888888;
+
+    opacity: 0.8;
+}
+
+
+
+/*#colorpad{*/
+    /*width: 400px;*/
+    /*height: 400px;*/
+/*}*/
