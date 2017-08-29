@@ -1,5 +1,5 @@
 function color() {
-    var colors = ['#ffaf05', 'red', 'blue', '#62f441', 'yellow', '#f442e8'];
+    var colors = ['#ffaf05', 'red', 'blue', '#62f441', /*'yellow', '#f442e8'*/];
 
     var size = 4;
     var blockWidth = 100;
@@ -10,6 +10,7 @@ function color() {
     var i, j;
     var $block;
     var click;
+    var $scoreView = $('#score');
 
     $view.css('width', size * blockWidth);
     $view.css('height', size * blockWidth);
@@ -50,9 +51,10 @@ function color() {
 
         if (data[click] === data[id])
         {
-            //TODO: increase score
-            //TODO: remove click event listeren on click and id
-            //TODO: clear click value
+            score += 1;
+            $('#' + click).css('background-color', 'disabled');
+            $('#' + id).css('background-color', 'disabled');
+            click = null;
         }
         else
         {
@@ -60,7 +62,7 @@ function color() {
                 $('#' + click).css('background-color', '');
                 $('#' + id).css('background-color', '');
                 click = null;
-            }, 2000)
+            }, 0.9500)
         }
 
 
