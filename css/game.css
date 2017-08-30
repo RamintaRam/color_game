@@ -14,7 +14,6 @@ body {
     border: 2px solid #888888;
     box-shadow: 5px 5px 5px #888888;
     margin: auto;
-    margin-top: 10%;
     text-align: center;
 
 }
@@ -23,8 +22,18 @@ body {
     box-sizing: border-box;
     /*border: 1px solid #666f82;*/
 
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 5px #666f82;
 
+    opacity: 0.7;
+}
+
+#gameName{
+    font-family: 'Anton', sans-serif;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 100px;
+    text-align: center;
+    margin-top: 3%;
+    color: #3d4d6e;
     opacity: 0.7;
 }
 

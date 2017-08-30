@@ -65,6 +65,7 @@ function color() {
 
         if (data[click] === data[id]) {
             score += 1;
+            console.log(score);
             $('#' + click).css('background-color', 'disabled');
             $('#' + id).css('background-color', 'disabled');
             click = null;
