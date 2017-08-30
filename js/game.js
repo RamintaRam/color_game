@@ -5,53 +5,51 @@ function color() {
     var blockWidth = 100;
     var data = [];
     var score = 0;
-    var newScore = (size * size) * 0.5;
+    var maxScore = (size * size) * 0.5;
     var $view = $('#colorpad');
     var i, j;
     var $block;
     var click;
     var $scoreView = $('#score');
-    var ids = ['0-0', '0-1', '0-2', '0-3', '1-0', '1-1', '1-2', '1-3', '2-0', '2-1', '2-2', '2-3', '3-0', '3-1', '3-2', '3-3',];
+    var ids = [];
 
     $view.css('width', size * blockWidth);
     $view.css('height', size * blockWidth);
 
     function fillTable() {
-        var index = ids.splice(1, 1);
-        console.log(index);
+
         for (i = 0; i < size; i++)
             for (j = 0; j < size; j++) {
-                // for (i = 0; i < score; i++)
-                //     for (j = 0; j < score; j++) {
-                        ids.splice(1, 1);
-                        ids.splice(3, 1);
-                        ids.splice(5, 1);
-                        ids.splice(7, 1);
-                        ids.splice(9, 1);
-                        ids.splice(11, 1);
-                        ids.splice(13, 1);
-                        ids.splice(15, 1);
+                var $block = $('<div id="' + i + '-' + j + '" class="block"></div>');
+
+                $block.css('width', blockWidth);
+                $block.css('height', blockWidth);
+
+                $view.append($block);
 
 
+                $block.click(function (e) {
 
-                        var rand = (colors[Math.floor(Math.random() * colors.length)]);
-                        var $block = $('<div id="' + i + '-' + j + '" class="block"></div>');
+                    countScore(this.id);
+                });
 
-                        $block.css('width', blockWidth);
-                        $block.css('height', blockWidth);
-
-                        $view.append($block);
-
-
-                        $block.click(function (e) {
-
-                            countScore(this.id);
-                        });
-
-                        data[i + '-' + j] = rand;
-
-                    // }
+                ids.push(i + '-' + j);
             }
+
+
+        for(i = 0; i < maxScore; i++)
+        {
+            var rand = (colors[Math.floor(Math.random() * colors.length)]);
+
+            var first = ids.splice(Math.round(Math.random() * (ids.length - 1)), 1);
+
+            var second = ids.splice(Math.round(Math.random() * (ids.length - 1)), 1);
+
+            data[first] = rand;
+            data[second] = rand;
+        }
+
+        // console.log(data);
     }
 
     fillTable();
